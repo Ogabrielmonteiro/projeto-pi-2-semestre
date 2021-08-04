@@ -1,0 +1,44 @@
+.div_main {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+.div_main h1 {
+  width: 50%;
+  text-align: center;
+  padding: 8% 0 8% 0;
+  border-bottom: #793fff 2px solid;
+}
+.div_icones {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 40px;
+}
+.div_icones img {
+  width: 100px;
+}
+.div_icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.div_icon span {
+  margin-top: -10px;
+  text-align: center;
+}
+.div_icon img {
+  width: 70px;
+}
+
+#image {
+  margin-top: -10px;
+}
+@media (max-width: 780px) {
+  .div_main h1 {
+    width: 80%;
+  }
+}

@@ -1,0 +1,21 @@
+2021-06-07 22:13:50.331168100 Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2021-06-07 22:13:57.566633800 Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2021-06-07 22:16:29.058302300 Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2021-06-07 22:17:35.739984 Erro ao conectar na URL do banco de dados Azure: Falha na conexão TCP/IP com o host quality-sistem.adatabase.windows.net, porta 1433. Erro: "quality-sistem.adatabase.windows.net. Verifique as propriedades da conexão. Verifique se uma instância do SQL Server está sendo executada no host e se está aceitando conexões TCP/IP na porta. Verifique se as conexões TCP na porta não foram bloqueadas por um firewall.".
+2021-06-07 22:17:50.418348500 Erro ao conectar na URL do banco de dados Azure: Falha na conexão TCP/IP com o host quality-sistem.adatabase.windows.net, porta 1433. Erro: "quality-sistem.adatabase.windows.net. Verifique as propriedades da conexão. Verifique se uma instância do SQL Server está sendo executada no host e se está aceitando conexões TCP/IP na porta. Verifique se as conexões TCP na porta não foram bloqueadas por um firewall.".
+2021-06-07 22:18:07.220211200 Falha na conexão TCP/IP com o host quality-sistem.adatabase.windows.net, porta 1433. Erro: "quality-sistem.adatabase.windows.net. Verifique as propriedades da conexão. Verifique se uma instância do SQL Server está sendo executada no host e se está aceitando conexões TCP/IP na porta. Verifique se as conexões TCP na porta não foram bloqueadas por um firewall.".
+2021-06-07 22:18:11.374440 Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2021-06-07 22:21:23.291325400 Erro ao conectar na URL do banco de dados Azure: Falha na conexão TCP/IP com o host quality-sistem.adatabase.windows.net, porta 1433. Erro: "quality-sistem.adatabase.windows.net. Verifique as propriedades da conexão. Verifique se uma instância do SQL Server está sendo executada no host e se está aceitando conexões TCP/IP na porta. Verifique se as conexões TCP na porta não foram bloqueadas por um firewall.".
+2021-06-07 22:21:37.976073800 Erro ao conectar na URL do banco de dados Azure: Falha na conexão TCP/IP com o host quality-sistem.adatabase.windows.net, porta 1433. Erro: "quality-sistem.adatabase.windows.net. Verifique as propriedades da conexão. Verifique se uma instância do SQL Server está sendo executada no host e se está aceitando conexões TCP/IP na porta. Verifique se as conexões TCP na porta não foram bloqueadas por um firewall.".
+2021-06-07 22:21:54.663814500 Falha na conexão TCP/IP com o host quality-sistem.adatabase.windows.net, porta 1433. Erro: "quality-sistem.adatabase.windows.net. Verifique as propriedades da conexão. Verifique se uma instância do SQL Server está sendo executada no host e se está aceitando conexões TCP/IP na porta. Verifique se as conexões TCP na porta não foram bloqueadas por um firewall.".
+2021-06-07 22:21:58.828811600 Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.

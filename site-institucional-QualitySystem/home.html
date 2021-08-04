@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="./img/logo/logo-simples.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="./JavaScript/dados.js"></script>
+
+    <title>Quality System</title>
+    <link rel="stylesheet" href="./css/global/global.css">
+    <link rel="stylesheet" href="./css/Home/section-main.css">
+    <link rel="stylesheet" href="./css/Home/section-sobre.css">
+    <link rel="stylesheet" href="./css/Home/section-solucoes.css">
+    <link rel="stylesheet" href="./css/Home/section-footer.css">
+</head>
+
+<body>
+    <!-- Main -->
+    <header>
+        <div class="div_navbar">
+            <div class="div_container">
+                <div class="img_logo">
+                    <img class="logo" src="./img/icon/Preto_Glitch_Rua_Logotipo__1__1-removebg-preview (2).png">
+                </div>
+                <div class="div_links">
+                    <ul>
+                        <li class="link_underscore"><a href="#sobre">Sobre</a></li>
+                        <li class="link_underscore"><a href="#solucoes">Soluções</a></li>
+                    </ul>
+                </div>
+                <div class="div_contato">
+                    <button class="btn_login"><a href="./login.html">Login</a></button>
+                </div>
+            </div>
+        </div>
+        <main>
+            <div class="div_main">
+                <h1>
+                    SISTEMA PARA AUMENTAR A QUALIDADE DE VIDA DO COLABORADOR EM HOME OFFICE
+                </h1>
+            </div>
+            <div class="div_icones">
+                <div class="div_icon">
+                    <img src="./img/icon/icon1.png">
+                    <br>
+                    <span>
+                        Automatização e controle <br> de pontos
+                    </span>
+                </div>
+
+                <div class="div_icon">
+                    <img id="image" src="./img/icon/icon2.png">
+                    <br>
+                    <span>
+                        Suporte remoto
+                    </span>
+                </div>
+
+                <div class="div_icon">
+                    <img src="./img/icon/icon3.png">
+                    <br>
+                    <span>
+                        Aumento da qualidade de vida
+                    </span>
+                </div>
+            </div>
+        </main>
+
+    </header>
+    <!-- Fim Main -->
+
+    <!-- Section sobre -->
+    <section id="sobre">
+        <div class="header-sobre">
+            <h1>Sobre a Quality System</h1>
+
+            <ul>
+                <li id="header-sobre" onClick="changeHeader(1)">Sobre</li>
+                <li id="header-integrantes" onClick="changeHeader(2)">Integrantes</li>
+            </ul>
+        </div>
+        <div class="content-sobre">
+
+        </div>
+    </section>
+    <!-- Fim section sobre -->
+
+    <!-- Section soluções -->
+    <section id="solucoes" class="div_solucoes">
+        <h1>Soluções</h1>
+        <div class="solucoes_links">
+            <ul>
+                <li class="current" id="li_automatizacao" onclick="change_automatizacao()">
+                    Automatização<br>batida de ponto
+                </li>
+                <li class="link_underscore" id="li_suporte" onclick="change_suporte()">
+                    Suporte remoto<br>aos colaboradores
+                </li>
+                <li class="link_underscore" id="li_qualidade" onclick="change_qualidade()">
+                    Aumento da qualidade<br>de vida do colaborador
+                </li>
+            </ul>
+        </div>
+        <div class="conteudo_solucoes">
+            <div class="txt_solucoes">
+                <p id="text_automatizacao">
+                    Nosso sistema tem a implatação da automatização de batida de ponto para facilitar a vida do seu colaborador com maior comodidade e menor preocupação com seus prontuários.
+                </p>
+            </div>
+
+            <div>
+                <ul>
+                    <li>
+                        <img class="icon" src="./img/icon/icon1.png">
+                        <p id="text_icon1">Entrada e saída de expediente</p>
+                    </li>
+                    <li>
+                        <img class="icon" src="./img/icon/icon1.png">
+                        <p id="text_icon2">Calculo de horas extras</p>
+                    </li>
+                    <li>
+                        <img class="icon" src="./img/icon/icon1.png">
+                        <p id="text_icon3">Relatório mensal</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+    <!-- Fim section soluções -->
+
+    <section class="sociais">
+        <h1>Redes sociais</h1>
+        <div class="icons-sociais">
+            <div class="div-logo">
+                <a href="#main">
+                    <img src="./img/logo/Preto Glitch Rua Logotipo (1).png" alt="Logo"></a>
+            </div>
+            <div class="div-sociais">
+                <a href="https://web.whatsapp.com/" target="_blank">
+                    <img src="./img/icon/WhatsLogo.png" alt="Logo whatssap"></a>
+            </div>
+            <div class="div-sociais">
+                <a href="https://www.linkedin.com/feed/" target="_blank">
+                    <img src="./img/icon/LinkedinLogo.png" alt="Logo linkedin">
+                </a>
+            </div>
+            <div class="div-sociais">
+                <a href="https://www.instagram.com/?hl=pt-br" target="_blank">
+                    <img src="./img/icon/InstaLogo.png" alt="logo instagram">
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Copyright © 2021 <span>Students BandTec</span></p>
+    </footer>
+</body>
+
+</html>
+<script src="Javascript/participants.js"></script>

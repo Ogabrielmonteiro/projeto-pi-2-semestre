@@ -1,0 +1,241 @@
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	font-family: Ubuntu-Regular, sans-serif;
+  
+}
+
+/*---------------------------------------------*/
+
+input {
+	outline: none;
+	border: none;
+}
+
+/*---------------------------------------------*/
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+/*//////////////////////////////////////////////////////////////////*/
+
+.limitador {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-login {
+  width: 100%;  
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+  
+  background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #7e1a77, #233bb1);
+  background: -o-linear-gradient(-135deg, #7e1a77, #233bb1);
+  background: -moz-linear-gradient(-135deg, #7e1a77, #233bb1);
+  background: linear-gradient(-135deg, #7e1a77, #233bb1);
+  
+  /* background: #d41872;
+  background: -webkit-linear-gradient(right, #591963, #860543, #c43879);
+  background: -o-linear-gradient(left, #591963, #79043c, #c43879);
+  background: -moz-linear-gradient(right, #591963, #7c023d, #c43879);
+  background: linear-gradient(left, #591963, #7e023e, #c43879); */
+ 
+/* 
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;   */
+}
+
+.container-login::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.65);
+}
+
+.login{
+  width: 390px;
+  border-radius: 10px;
+  overflow: hidden;
+
+  background: transparent;
+}
+
+.login img {
+  padding: 16px;
+  height: 120px;
+  margin-left: 140px;
+}
+
+/*------------------------------------------------------------------*/
+
+.form-login {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.login-form-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 25px;
+  color: #555555;
+  
+  text-align: center;
+  height: 50px;
+  display: block;
+}
+
+
+/*------------------------------------------------------------------*/
+
+.div-inputs {
+  width: 100%;
+  position: relative;
+  border-bottom: 1.5px solid #d8d8d8;
+  padding: 20px 0;
+  
+}
+
+.inputs {
+  font-family: 'Hind', sans-serif;
+  font-size: 20px;
+  color: #555555;
+  line-height: 1.2;
+
+  display: block;
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  padding: 0 10px 0 85px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/*---------------------------------------------*/ 
+
+.focus-input {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+
+.focus-input::after {
+  font-family: Linearicons-Free;
+  font-size: 18px;
+  color: #999999;
+
+  content: attr(data-placeholder);
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 40px;
+  left: 35px;
+ 
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.input:focus {
+  padding-left: 60px;
+}
+
+.inputs:focus + .focus-input::after {
+  left: 24px;
+  color: #5926e4;
+}
+
+.inputs:focus + .focus-input::before {
+  width: 100%;
+}
+
+/*------------------------------------------------------------------*/
+.div-btn {
+  width: 100%;
+  height: 95px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 24px;
+}
+
+.btn {
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 42px;
+  border-radius: 21px;
+  letter-spacing: 2px;
+  background: #d41872;
+  background: -webkit-linear-gradient(left, #591963, #d41872, #c43879);
+  position: relative;
+  z-index: 1;
+
+  -webkit-transition: all 0.4s;
+  transition: all 1s;
+}
+
+.btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 21px;
+  background: -webkit-linear-gradient(right, #591963, #d41872, #c43879);
+  background: -o-linear-gradient(left, #591963, #d41872, #c43879);
+  background: -moz-linear-gradient(left, #591963, #d41872, #c43879);
+  background: linear-gradient(left, #591963, #d41872, #c43879);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.6s;
+}
+
+.btn:hover:before {
+  opacity: 0.5;
+}
+
+
+
+
+
+

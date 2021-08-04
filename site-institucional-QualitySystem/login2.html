@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="login">
+        <img src="./QualitySystemLogoSimples.png">
+        <div class="inputs">
+            <input type="text" id="myInput" placeholder="Login">
+            <i class="bi bi-person"></i>
+        </div>
+        <div class="inputs">
+            <input type="password" id="myInput2" placeholder="Senha">
+            <i class="bi bi-lock"></i>
+        </div>
+        
+        <button class="button">Logar</button>
+
+        <p class="footer">&copy Desde 2020</p>
+    </div>
+    
+</body>
+</html>
+<script>
+    
+
+</script>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: url(./pexels-pixabay-459654.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+    }
+    .login {
+        height: 70vh;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        margin: auto;
+        margin-top: 100px;
+        box-shadow: 5px 8px 10px rgba(153, 153, 153, 0.486);
+    }
+    p {
+        margin: 0;
+        font-size: 1.5rem;
+        margin-left: 20px;
+        margin-right: 20px;
+        color: black;
+    }
+    .footer {
+        margin-top: 100px;
+        color: black;
+    }
+
+    /* select */
+    .togle {
+        position: relative;
+        margin-top: 50px;
+    }
+    ul {
+        margin: 0;
+    }
+    .select {
+        border: 2px solid #793FFF;
+        padding: 11px;
+        font-size: 1rem;
+        font-size: 1.2rem;
+        color: black;
+        background: transparent;
+        cursor: pointer;
+        padding-right: 57px;
+        padding-left: 55px;
+        cursor: pointer;
+        box-shadow: 3px 4px #793fff;
+        outline: none;
+    }
+    .togle > i {
+        top: .6rem;
+        right: .75rem;
+        position: absolute;
+        font-size: 1.5rem;
+        color: black;
+    }
+    #selectMenu {
+        width: 200px;
+        background-color: transparent;
+        border: 2px solid #793FFF;
+        text-align: center;
+        margin-top: 2px;
+        margin-top: 4px;
+        display: none;
+    }
+    li {
+        list-style: none;
+        font-size: 1.3rem;
+        color: black;
+        padding: 3px;
+        margin-top: 3px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    li:hover {
+        transition: 0.3s;
+        background-color: black;
+        color: white;
+        border-left: 8px solid #793FFF;
+        box-sizing: content-box;
+    }
+   
+   /* BUTTON */
+    .button {
+        margin-top: 100px;
+        height: 40px;
+        width: 20%;
+       background-color: black;
+        outline: none;
+        border: none;
+        font-size: 1.5rem;
+        color: white;
+        border: black 2px solid;
+        box-shadow: 4px 6px #793FFF;
+        transition: 0.5s;
+        animation: teste 1s ease;
+    }
+    .button:hover, .select:hover{
+        cursor: pointer;
+        background-color: #8551ff;
+        color: white;
+        border: #8551ff 2px solid;
+        box-shadow: 4px 6px black;
+        transition: 0.5s;
+    }
+
+    /* INPUT */
+
+    #myInput, #myInput2 {
+        outline: none;
+        padding: 10px;
+        height: 20px;
+        font-size: 1.2rem;
+        outline: none;
+        padding-left: 3rem;
+        width: 90%;
+        background-color: transparent;
+        border: none;
+        color: black;
+        border-bottom: 2px solid #793FFF;
+    }
+    
+    .inputs {
+        height: 20px;
+        margin-top: 40px;
+        position: relative;
+        width: 50%;
+    }
+    @keyframes teste {
+        from {
+            transform: translatey(20px);
+        }
+        to {
+            transform: translatey(0);
+        }
+    }
+
+    /* ICON */
+    .inputs > i {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.75rem;
+        pointer-events: none;
+        color: gray;
+        line-height: 1.5rem;
+        font-size: 1.5rem;
+    }
+    
+</style>

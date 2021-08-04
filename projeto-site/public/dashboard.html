@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="shortcut icon" href="./img/QualitySystemLogoSimples.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <script type="text/javascript" src="./functions/funcoes.js"></script>
+    <script src="./functions/modal.js"></script>
+    <script src="./functions/toggleLoggof.js"></script>
+
+    <!-- scripts do Chart.js -->
+    <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+    <title>Visão geral</title>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="container-navbar">
+                <div class="div-flex">
+                    <img src="./img/QualitySystemLogoSimples.png">
+                    <h2>Quality Sistem</h2>
+                </div>
+                <ul>
+                    <li class="span-default active"><a href="./dashboard.html">Visão geral</a></li>
+                    <li class="span-default"><a href="./dashboardColaborador.html">Controle de pausas</a></li>
+                    <li class="span-default"><a href="./tabelaComputador.html">Computadores</a></li>
+                </ul>
+                <div id="div-container-dropdwon">
+                    <span class="span-default" onclick="showDropdown()">
+                        <i class="bi bi-person-circle"></i>
+                        <i class="bi bi-chevron-down"></i>
+                    </span>
+                    <span id="div-loggout" class="div-sair display-none" onclick="logoff()">Sair</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END NAVBAR -->
+
+    <main>
+        </div>
+        <div class="div-dashboard">
+            <div class="card-title">
+                <div class="container">
+                    <h2>Dashboard geral</h2>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card-body">
+                    <div class="space-around">
+                        <div class="card-body column-center">
+                            <h1 class="box-h1" id="titulo-saudavel">3</h1>
+                            <p class="green">Computadores saudaveis</p>
+                        </div>
+                        <div class="card-body column-center">
+                            <h1 class="box-h1" id="titulo-atencao">3</h1>
+                            <p class="warning">Computadores em atenção</p>
+                        </div>
+                        <div class="card-body column-center">
+                            <h1 class="box-h1" id="titulo-risco">3</h1>
+                            <p class="danger">Computadores em risco</p>
+                        </div>
+                    </div>
+                    <div class="div_graficos">
+                        <div class="div-chart">
+                            <div>
+                                <canvas id="myChart" width="500px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>
+<script>
+    var toggle = false;
+
+    window.onload = chamarGraficoPrimeira();
+
+    function showDropdown() {
+        var element = document.getElementById('div-loggout');
+        toggle = !toggle;
+        if (toggle == false) {
+            element.classList.remove('display-none');
+            document.getElementById('div-container-dropdwon').classList.add('mt-30');
+        } else {
+            element.classList.add('display-none');
+            document.getElementById('div-container-dropdwon').classList.remove('mt-30');
+        }
+    }
+
+    function chamarGraficoPrimeira() {
+        dado1 = 7;
+        dado2 = 3;
+        dado3 = 0;
+        var dados = [dado1, dado2, dado3];
+        const titulo1 = document.getElementById('titulo-saudavel')
+        const titulo2 = document.getElementById('titulo-atencao')
+        const titulo3 = document.getElementById('titulo-risco')
+        titulo1.innerHTML = `${dado1}`;
+        titulo2.innerHTML = `${dado2}`;
+        titulo3.innerHTML = `${dado3}`;
+
+        criargrafico(dados);
+        // simularDados();
+    }
+
+    function simularDados() {
+        dado1 = funcaoRandom(1, 10);
+        dado2 = funcaoRandom(1, 10);
+        dado3 = funcaoRandom(1, 10);
+        var dados = [dado1, dado2, dado3];
+        const titulo1 = document.getElementById('titulo-saudavel');
+        const titulo2 = document.getElementById('titulo-atencao');
+        const titulo3 = document.getElementById('titulo-risco');
+        titulo1.innerHTML = `${dado1}`;
+        titulo2.innerHTML = `${dado2}`;
+        titulo3.innerHTML = `${dado3}`;
+        setTimeout(() => {
+            simularDados()
+            console.log(dados);
+            criargrafico(dados)
+        }, 3000)
+    }
+
+    function funcaoRandom(min, max) {
+        return Math.floor(Math.random() * (max - min));
+    }
+
+    function criargrafico(dado) {
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Computadores ativos', 'Computadores em atenção', 'Computadores em perigo'],
+                datasets: [
+                    {
+                        label: 'Colaboradores ativos',
+                        data: dado,
+                        backgroundColor: [
+                            '#AFD6F8',
+                            '#ff9853',
+                            'red',
+                        ],
+                        borderColor: [
+                            'blue',
+                            'orangered',
+                            'red',
+                        ],
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+            }
+        });
+    }
+</script>

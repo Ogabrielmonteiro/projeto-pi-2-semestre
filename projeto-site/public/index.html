@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/QualitySystemLogoSimples.png">
+    <!-- Start of qualitysystem Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=b9db778b-2825-4b86-bab3-5e0a78740ad6"> </script>
+<!-- End of qualitysystem Zendesk Widget script -->
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="login">
+        <img src="./img/QualitySystemLogoSimples.png">
+        <form id="form_login" class="form_login" method="post" onsubmit="return entrar()">
+            <div class="inputs">
+                <input type="text" name="login" id="myInput" placeholder="Login">
+                <i class="bi bi-person left"></i>
+                
+            </div>
+            <div class="inputs">
+                <input type="password" name="senha"  id="myInput2" placeholder="Senha">
+                <i class="bi bi-lock left"></i>
+                <i onclick="changeTypeInput()" class="bi bi-eye-fill rigth"></i>
+            </div>
+            <button id="btn_entrar" class="button">Logar</button>
+        </form>
+        <div class="extra">
+            <div id="div_erro" class="msg_erro">
+            </div>
+            <img class="gif" src="./img/aguarde-orange.gif" id="img_aguarde">
+            <!--style="display: none;"-->
+        </div>
+        <p class="footer">&copy Desde 2020</p>
+    </div>
+    
+</body>
+</html>
+<script>
+    function entrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.nome_usuario_meuapp = json.nome;
+
+                    window.location.href = 'dashboard.html';
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+    function changeTypeInput() {
+        document.getElementById('myInput').type = 'text';
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.visibility = 'visible';
+        div_erro.style.visibility = 'hidden';
+    }
+
+    function finalizar_aguardar(resposta) {
+        btn_entrar.disabled = false;
+        img_aguarde.style.visibility = 'hidden';
+        div_erro.style.visibility = 'visible';
+        div_erro.innerHTML = resposta;
+    }
+
+</script>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: url(./img/pexels-pixabay-459654.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+    }
+    img {
+        height: 120px;
+    }
+    .gif {
+        height: 30px;
+        margin-top: 20px;
+    }
+    .login {
+        height: 80vh;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        margin: auto;
+        margin-top: 100px;
+        box-shadow: 5px 8px 10px rgba(153, 153, 153, 0.486);
+    }
+    .form_login {
+        text-align: center;
+    }
+    p {
+        margin: 0;
+        font-size: 1rem;
+        margin-left: 20px;
+        margin-right: 20px;
+        color: black;
+    }
+    .footer {
+        margin-top: 50px;
+        color: black;
+    }
+
+    /* select */
+    .togle {
+        position: relative;
+        margin-top: 50px;
+    }
+    ul {
+        margin: 0;
+    }
+    .select {
+        border: 2px solid #793FFF;
+        padding: 11px;
+        font-size: 1rem;
+        font-size: 1rem;
+        color: black;
+        background: transparent;
+        cursor: pointer;
+        padding-right: 57px;
+        padding-left: 55px;
+        cursor: pointer;
+        box-shadow: 3px 4px #793fff;
+        outline: none;
+    }
+    .togle > i {
+        top: .6rem;
+        right: .75rem;
+        position: absolute;
+        font-size: 1rem;
+        color: black;
+    }
+    #selectMenu {
+        width: 200px;
+        background-color: transparent;
+        border: 2px solid #793FFF;
+        text-align: center;
+        margin-top: 2px;
+        margin-top: 4px;
+        display: none;
+    }
+    li {
+        list-style: none;
+        font-size: 1rem;
+        color: black;
+        padding: 3px;
+        margin-top: 3px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    li:hover {
+        transition: 0.3s;
+        background-color: black;
+        color: white;
+        border-left: 8px solid #793FFF;
+        box-sizing: content-box;
+    }
+   
+   /* BUTTON */
+    .button {
+        margin-top: 50px;
+        height: 40px;
+        width: 40%;
+        background-color: black;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        color: white;
+        border: black 2px solid;
+        box-shadow: 4px 6px #793FFF;
+        transition: 0.5s;
+        animation: teste 1s ease;
+    }
+    .button:hover, .select:hover{
+        cursor: pointer;
+        background-color: #8551ff;
+        color: white;
+        border: #8551ff 2px solid;
+        box-shadow: 4px 6px black;
+        transition: 0.5s;
+    }
+
+    /* INPUT */
+
+    .inputs {
+        height: 20px;
+        margin-top: 40px;
+        position: relative;
+        width: 90%;
+    }
+    #myInput, #myInput2 {
+        outline: none;
+        padding: 10px;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        height: 20px;
+        font-size: 1rem;
+        outline: none;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        color: black;
+        border-bottom: 2px solid #793FFF;
+        z-index: 1;
+    }
+    
+    @keyframes teste {
+        from {
+            transform: translatey(20px);
+        }
+        to {
+            transform: translatey(0);
+        }
+    }
+
+    /* ICON */
+    .left {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.75rem;
+        pointer-events: none;
+        color: gray;
+        line-height: 1.5rem;
+        font-size: 1rem;
+    }
+    .rigth {
+        position: absolute;
+        top: 0.5rem;
+        left: 21rem;
+        pointer-events: none;
+        color: gray;
+        line-height: 1.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        z-index: 3;
+    }
+    .extra {
+    margin: 20px;
+    }
+
+    .extra img {
+    height: 50px;
+    visibility: hidden;
+    }
+
+    .extra .msg_erro {
+        background-color: sandybrown; 
+        color: black; 
+        visibility: hidden;
+    }
+    
+</style>

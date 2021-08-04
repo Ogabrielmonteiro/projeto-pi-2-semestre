@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="shortcut icon" href="./img/QualitySystemLogoSimples.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <script type="text/javascript" src="./functions/funcoes.js"></script>
+    <script src="./functions/modal.js"></script>
+    <script src="./functions/toggleLoggof.js"></script>
+    <script src="./functions/gerarGrafico.js"></script>
+    <!-- scripts do Chart.js -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+    <title>Computadores</title>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="container-navbar">
+                <div class="div-flex">
+                    <img src="./img/QualitySystemLogoSimples.png">
+                    <h2>Quality Sistem</h2>
+                </div>
+                <ul>
+                    <li class="span-default"><a href="./dashboard.html">Visão geral</a></li>
+                    <li class="span-default"><a href="./dashboardColaborador.html">Controle de pausas</a></li>
+                    <li class="span-default active"><a href="./tabelaComputador.html">Computadores</a></li>
+                </ul>
+                <div id="div-container-dropdwon">
+                    <span class="span-default" onclick="showDropdown()">
+                        <i class="bi bi-person-circle"></i>
+                        <i class="bi bi-chevron-down"></i>
+                    </span>
+                    <span id="div-loggout" class="div-sair display-none" onclick="logoff()">Sair</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="div-dashboard">
+            <div class="card-title">
+                <div class="container space-between">
+                    <div>
+                        <h1>Tabela colaboradores</h1>
+                        <h3 class="margin-0">Visualizar pausas</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="mr-1">
+                                    <input type="text" placeholder="Pesquisar computador">
+                                </th>
+                                <th>
+                                    <button class="button-primary">Pesquisar</button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            <tr class="table-label">
+                                <td>Colaboradores</td>
+                                <td>id</td>
+                                <td>Visualizar dados do computador</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="dash" class="card-body display-none flex-wrap">
+                    <div class="div_cpu">
+                        <div class="card-body">
+                            <p class="graficoTitle">CPU</p>
+                            <canvas id="canvas_grafico_cpu" width="100%"></canvas>
+                        </div>
+                    </div>
+                
+                    <div class="div_ram">
+                        <div class="card-body">
+                            <p class="graficoTitle">RAM</p>
+                            <canvas id="canvas_grafico_ram" width="100%"></canvas>
+                        </div>
+                    </div>
+                
+                    <div class="div_disco">
+                        <div class="card-body">
+                            <p class="graficoTitle">DISCO</p>
+                            <canvas id="canvas_grafico_disco" width="100%"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal" id="modal">
+            <div class="card-body">
+                <div class="space-between mb-1 bb-1">
+                    <h2 class="margin-0">Cadastrar colaborador</h2>
+                    <span class="icon-modal flex-end" onclick="hideModal()">&times;</span>
+                </div>
+                <form class="column-start mb-1" id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                    <input type="text" name="nome" required minlength="4" placeholder="Nome completo" class="mb-1">
+                    <input type="text" name="cpf" placeholder="CPF" class="mb-1">
+                    <input type="text" name="login" required minlength="4" placeholder="Login" class="mb-1">
+                    <input type="password" name="senha" required minlength="4" placeholder="Senha" class="mb-1">
+                    <input type="text" name="idCargo" placeholder="id do cargo" class="mb-1">
+                    <input type="text" name="idEmpresa" placeholder="id da empresa" class="mb-1">
+                    <div class="flex-end bt-1">
+                        <button class="button-default mr-1" onclick="hideModal()">Cancelar</button>
+                        <button id="btn_entrar" class="button-primary">Adicionar</button>
+                    </div>
+                </form>
+
+                <img src="./img/aguarde-orange.gif" id="img_aguarde" style="display: none;" width="80px">
+
+                <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+                    Erro no cadastro
+                </div>
+            </div>
+        </div>
+
+        <div class="mensagem-sucesso" id="div_sucesso">
+            <span class="icon-modal flex-start" onclick="hide_mensagem_sucesso()">&times;</span>
+            <span>
+                Colaborador cadastrado com sucesso
+            </span>
+        </div>
+    </main>
+
+</body>
+
+</html>
+<script>
+    var dados = [];
+    window.onload = obterColaboradores;
+
+    function obterColaboradores() {
+        fetch('/pausas/colaboradores', {
+            method: 'GET',
+        }).then((response) => {
+            if (response.ok) {
+                response.json().then(res => {
+                    dados.push(res);
+                    adicionarDados();
+                });
+            }
+        })
+    }
+
+    function adicionarDados() {
+        var tbody = document.getElementById('tbody');
+        for (var i = 0; i < dados[0].length; i++) {
+            var registro = dados[0];
+            tbody.innerHTML += [
+                `<tr>`,
+                `<td>${registro[i].nomeColaborador}</td>`,
+                `<td>${registro[i].idColaborador}</td>`,
+                `<td><a onclick=obterDadosGraficoPrimeiraVez(1)>Detalhes</a></td>`,
+                `</tr>`,
+            ].join("\n");
+        }
+    }
+
+    function cadastrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+
+            if (response.ok) {
+
+                mensagem_sucesso();
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.visibility = 'visible';
+        div_erro.style.visibility = 'hidden';
+    }
+
+    function finalizar_aguardar(resposta) {
+        btn_entrar.disabled = false;
+        img_aguarde.style.visibility = 'hidden';
+        div_erro.style.visibility = 'visible';
+        div_erro.innerHTML = resposta;
+    }
+
+    function mensagem_sucesso() {
+        btn_entrar.disabled = false;
+        img_aguarde.style.display = 'none';
+        hideModal();
+        document.getElementById('div_sucesso').style.top = '100px';
+    }
+    function hide_mensagem_sucesso() {
+        document.getElementById('div_sucesso').style.top = '-100px';
+    }
+</script>

@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+body,
+input,
+button {
+  font-family: Inter, sans-serif;
+}
+
+body {
+  color: white;
+  background: #12121400;
+}
+
+header {
+  background-image: url(../../img/mesa-home.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+@keyframes link_underscore {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+li.link_underscore:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background-color: #793fff;
+  height: 2px;
+  width: 100%;
+
+  animation: link_underscore 0.5s;
+}
+
+.link_underscore {
+  position: relative;
+
+  cursor: pointer;
+}
+
+.div_navbar {
+  background: linear-gradient(black, rgba(128, 128, 128, 0));
+  height: 90px;
+  width: 100%;
+}
+.div_container {
+  height: 90px;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+.logo {
+  margin: auto;
+  height: 90px;
+}
+
+.btn_contato {
+  border: 1px solid #7d2ae8;
+  transition: 0.5s;
+}
+
+.btn_contato:hover {
+  background-color: #7d2ae8;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+
+.div_links {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.div_links ul {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+.div_links a {
+  text-decoration: none;
+  color: white;
+}
+.div_links li:nth-child(2) {
+  margin: 0 40px;
+}
+
+.div_links li {
+  font-size: 20px;
+}
+.div_container button {
+  background-color: #793fff;
+  color: white;
+  font-size: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+}
+
+@media (max-width: 780px) {
+  .div_links ul {
+    margin-left: 0;
+    display: block;
+    margin-top: 3px;
+  }
+  .div_links li:nth-child(2) {
+    margin: 0;
+  }
+}

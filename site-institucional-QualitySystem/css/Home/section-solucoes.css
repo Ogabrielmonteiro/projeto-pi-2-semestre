@@ -1,0 +1,73 @@
+.div_solucoes {
+  background-image: url(../../img/home-office.png);
+  width: 100%;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  text-align: center;
+  padding-bottom: 40px;
+  justify-content: space-between;
+}
+.div_solucoes h1 {
+  width: min-content;
+  margin: auto;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #793fff;
+}
+
+.solucoes_links ul {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.solucoes_links ul li {
+  list-style: none;
+  text-align: center;
+  padding: 0 5px;
+}
+
+.conteudo_solucoes {
+  margin: auto;
+  width: 90%;
+  margin-top: 30px;
+  max-width: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.txt_solucoes {
+  margin: auto;
+
+}
+
+.conteudo_solucoes ul {
+  max-width: 100%;
+  margin-top: 20px;
+}
+.conteudo_solucoes ul li {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.conteudo_solucoes ul li p {
+  padding-left: 20px;
+}
+
+.conteudo_solucoes ul li img {
+  width: 50px;
+}
+#text_automatizacao {
+  display: block;
+  font-size: 16pt;
+  width: 100%;
+  text-align: center;
+  max-width: 600px;
+}
+
+.current {
+  border-bottom: 2px solid #793fff;
+  text-align: center;
+}
